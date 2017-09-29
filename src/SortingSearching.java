@@ -79,6 +79,8 @@ public class SortingSearching {
             
             
         }
+        
+        // Merge Sort 
         public void mergeSort(int[] array){
             // If we are at 1 item, done sorting
             if (array.length <= 1){
@@ -121,7 +123,7 @@ public class SortingSearching {
             
         }
         
-        
+        // Sequential search
         public int sequentialSearch(int[] array, int number){
             for (int i = 0; i < array.length; i++){
                 // Did i find it?
@@ -133,6 +135,30 @@ public class SortingSearching {
             // Did not find it
             return -1;
         }
+        
+        // Binary search
+        public int binarySearch(int[] array, int target){
+        int min = 0;
+        int max = array.length - 1;
+        
+        while(max >= min){
+            int guess = (max+min)/2;
+            
+            // Find it?
+            if(array[guess] == target){
+                return guess;
+                
+            }else if(target > array[guess]){
+                min = guess + 1;
+                
+            }else{
+                max = guess - 1;
+            }
+        }
+        // didn't find it
+        return -1;
+        
+    }
 
     ////////////////////////////////////////////////////////////////////////////    
    
